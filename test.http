@@ -1,5 +1,50 @@
 ###
-GET https://localhost:8080
+GET https://localhost:8080/beneficiario/
 accept: application/json
 
+###
+
+###
+POST https://localhost:8080/beneficiario/
+Content-Type: application/json
+
+{
+  "nome": "Gustavo Vieira",
+  "telefone": "81912345678",
+  "dataNascimento": "2001-08-09",
+  "documentos": [
+    {
+      "tipoDocumento": "CPF",
+      "descricao": "Cadastro da pessoa física"
+    }]
+}
+
+###
+
+###
+GET http://localhost:8080/beneficiario/1
+accept: application/json
+
+###
+
+###
+GET http://localhost:8080/beneficiario/1/docs
+accept: application/json
+###
+
+###
+PATCH http://localhost:8080/beneficiario/1
+Content-Type: application/json
+
+{
+  "nome": "Joao Santos",
+  "telefone": "81987654321",
+  "dataNascimento": "2010-10-12",
+  "documentos": []
+}
+###
+
+###
+DELETE http://localhost:8080/beneficiario/1
+accept: application/json
 ###
