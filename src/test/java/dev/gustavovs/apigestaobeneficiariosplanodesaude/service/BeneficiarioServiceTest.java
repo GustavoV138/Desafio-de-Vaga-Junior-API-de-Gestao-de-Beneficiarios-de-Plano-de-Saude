@@ -207,7 +207,7 @@ class BeneficiarioServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("Deve remover um Beneficiario existente com sucesso sem lançar nenhum tipo de exception.")
     public void delete_ShouldRemoveAnExistingBeneficiario_WhenSuccesssful() {
         Beneficiario beneficiario = Beneficiario.BeneficiarioBuilder.builder()
                 .nome("Teste")
@@ -220,6 +220,7 @@ class BeneficiarioServiceTest {
 
         Mockito.when(beneficiarioRepository.findById(Mockito.any(Long.class)))
                 .thenReturn(Optional.of(beneficiario));
+        Mockito.doNothing().when(beneficiarioRepository).delete(Mockito.any(Beneficiario.class));
 
         assertDoesNotThrow(() -> beneficiarioService.delete(1L));
     }
